@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Granth Enterprise - Home</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #bfbfbf;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #1e1e1e;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 40px;
+            flex-wrap: wrap;
+        }
+
+        header img {
+            height: 60px;
+            background-color: white;
+            padding: 5px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .nav-links {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links li a {
+            color: #f0f0f0;
+            text-decoration: none;
+            font-weight: bold;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links li a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            height: 2px;
+            width: 0;
+            background-color: #28a745;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links li a:hover {
+            color: #28a745;
+        }
+
+        .nav-links li a:hover::after {
+            width: 100%;
+        }
+
+        .hero {
+            background: url('https://source.unsplash.com/1600x900/?metal,fabrication') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 100px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+
+        .cta {
+            background-color: #28a745;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 20px;
+        }
+
+        .cta:hover {
+            background-color: #218838;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .info-section {
+            background-color: white;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .info-section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .info-section p {
+            max-width: 800px;
+            margin: auto;
+            font-size: 1rem;
+            color: #555;
+        }
+
+        footer {
+            background-color: #1e1e1e;
+            color: #fff;
+            text-align: center;
+            padding: 20px 10px;
+        }
+
+        footer a {
+            color: #28a745;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="logo.png" alt="Granth Enterprises Logo">
+        <h1>Welcome to Granth Enterprises</h1>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="project.html">Products/Services</a></li>
+                <li><a href="contacts.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="hero fade-in">
+        <h1>Precision Metal Fabrication</h1>
+        <p>Reliable, High-Quality Welding & Metal Works</p>
+        <button class="cta" onclick="location.href='about.html'">Know us better!</button>
+    </div>
+
+    <section class="info-section fade-in">
+        <h2>Why Choose Us?</h2>
+        <p>With years of hands-on experience in the fabrication industry, Granth Enterprise is known for its precision, quality, and reliability. From custom gates and railings to industrial parts, we deliver excellence in every weld.</p>
+    </section>
+
+    <footer>
+        <p><a href="mailto:info@granthenterprises.com">info@granthenterprises.com</a></p>
+    </footer>
+
+    <script>
+        $(document).ready(function() {
+            $(window).on("load scroll", function() {
+                $(".fade-in").each(function() {
+                    var elementTop = $(this).offset().top;
+                    var windowBottom = $(window).scrollTop() + $(window).height();
+                    if (windowBottom > elementTop + 50) {
+                        $(this).addClass("visible");
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

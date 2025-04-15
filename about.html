@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>About Us - Granth Enterprise</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #bfbfbf;
+        }
+
+        header {
+            background-color: #1e1e1e;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 40px;
+            flex-wrap: wrap;
+        }
+
+        header img {
+            height: 80px;
+            border-radius: 12px;
+            background-color: white;
+            padding: 8px;
+        }
+
+        .logo-title {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo-title h1 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+        nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        position: relative;
+        transition: color 0.3s;
+        }
+
+        nav ul li a::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: #28a745;
+        transition: width 0.3s ease-in-out;
+        }
+
+        nav ul li a:hover {
+        color: #28a745;
+        }
+
+        nav ul li a:hover::before {
+        width: 100%;
+    }
+        .hero {
+            background: url('https://source.unsplash.com/1600x500/?fabrication,workshop') no-repeat center center/cover;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-shadow: 1px 1px 4px black;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            color: #ffffff;
+            font-weight: bold;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+            letter-spacing: 1px;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            background-color: white;
+            padding: 30px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .about-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .about-text {
+            flex: 1 1 60%;
+        }
+
+        .about-image {
+            flex: 1 1 35%;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        h2 {
+            color: #e74c3c;
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .highlights {
+            margin-top: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .highlight {
+            flex: 1 1 45%;
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-left: 5px solid #e74c3c;
+            border-radius: 5px;
+        }
+
+        .highlight h4 {
+            margin-bottom: 8px;
+            color: #2c3e50;
+        }
+
+        footer {
+            background-color: #1e1e1e;
+            color: #fff;
+            text-align: center;
+            padding: 20px 10px;
+        }
+
+        footer a {
+            color: #28a745;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .about-section {
+                flex-direction: column;
+            }
+
+            .highlight {
+                flex: 1 1 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo-title">
+            <img src="logo.png" alt="Granth Enterprises Logo">
+            <h1>Welcome to Granth Enterprises</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="project.html">Products/Services</a></li>
+                <li><a href="contacts.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <h1>About Us</h1>
+    </div>
+
+    <div class="container fade-in">
+        <div class="about-section">
+            <div class="about-text">
+                <h2>Who We Are</h2>
+                <p><strong>Patel Enterprise</strong> is a leading local provider of custom metal fabrication solutions...</p>
+                <p>We offer a wide range of services including <strong>cutting, welding, bending, and assembling</strong>...</p>
+                <p>At Patel Enterprise, we believe in craftsmanship that lasts...</p>
+
+                <div class="highlights">
+                    <div class="highlight">
+                        <h4>✔ Advanced Machinery</h4>
+                        <p>We use CNC, laser, MIG & TIG welding machines...</p>
+                    </div>
+                    <div class="highlight">
+                        <h4>✔ Tailored Solutions</h4>
+                        <p>Each project is customized to meet client needs...</p>
+                    </div>
+                    <div class="highlight">
+                        <h4>✔ Safety & Quality</h4>
+                        <p>Every product is tested for durability, safety...</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-image">
+                <img src="m.jpg" alt="Fabrication Work">
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Granth Enterprises. All rights reserved. | Designed by Your Name</p>
+    </footer>
+
+    <script>
+        $(document).ready(function () {
+            $(window).on("load scroll", function () {
+                $(".fade-in").each(function () {
+                    var elementTop = $(this).offset().top;
+                    var windowBottom = $(window).scrollTop() + $(window).height();
+
+                    if (windowBottom > elementTop + 50) {
+                        $(this).addClass("visible");
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
