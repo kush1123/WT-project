@@ -4,154 +4,239 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - Granth Enterprises</title>
 
-    <style>
-        /* Overall body style */
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #bfbfbf;
-            margin: 0;
-            padding: 0;
-        }
+   <style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #bfbfbf;
+        margin: 0;
+        padding: 0;
+    }
 
-        /* Fade-in animation for header */
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+    header {
+        background-color: #1e1e1e;
+        color: white;
+        padding: 10px 20px;
+    }
 
-        /* Header styling */
-        header {
-            background-color: #1e1e1e;
-            color: white;
-            padding: 20px 10px;
-            animation: fadeInDown 1s ease forwards;
-        }
+    .header-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        text-align: center;
+    }
 
+    .logo {
+        flex: 0 0 auto;
+        margin-right: 20px;
+    }
+
+    .logo img {
+        height: 60px;
+        background-color: white;
+        padding: 5px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .center-content {
+        flex: 1 1 auto;
+    }
+
+    .center-content h1 {
+        margin: 0;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 10px 0 0 0;
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        flex-wrap: wrap;
+    }
+
+    nav ul li {
+        display: inline;
+    }
+
+    nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1rem;
+        position: relative;
+        transition: color 0.3s;
+    }
+
+    nav ul li a::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: #28a745;
+        transition: width 0.3s ease-in-out;
+    }
+
+    nav ul li a:hover {
+        color: #28a745;
+    }
+
+    nav ul li a:hover::before {
+        width: 100%;
+    }
+
+    .hero {
+        background: url('https://source.unsplash.com/1600x500/?fabrication,workshop') no-repeat center center/cover;
+        height: 300px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-shadow: 1px 1px 4px black;
+    }
+
+    .hero h1 {
+        font-size: 3rem;
+        font-weight: bold;
+        letter-spacing: 1px;
+        font-family: 'Times New Roman', Times, serif;
+        text-align: center;
+        padding: 0 10px;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 40px auto;
+        background-color: white;
+        padding: 30px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+    }
+
+    .about-section {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+
+    .about-text {
+        flex: 1 1 60%;
+    }
+
+    .about-image {
+        flex: 1 1 35%;
+    }
+
+    .about-image img {
+        width: 100%;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .fade-in {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 1s ease, transform 1s ease;
+    }
+
+    .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    h2 {
+        color: #e74c3c;
+        margin-bottom: 15px;
+    }
+
+    p {
+        font-size: 1.1rem;
+        line-height: 1.7;
+        color: #333;
+    }
+
+    .highlights {
+        margin-top: 30px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .highlight {
+        flex: 1 1 45%;
+        background-color: #f4f4f4;
+        padding: 15px;
+        border-left: 5px solid #e74c3c;
+        border-radius: 5px;
+    }
+
+    .highlight h4 {
+        margin-bottom: 8px;
+        color: #2c3e50;
+    }
+
+    footer {
+        background-color: #1e1e1e;
+        color: #fff;
+        text-align: center;
+        padding: 20px 10px;
+    }
+
+    footer a {
+        color: #28a745;
+        text-decoration: none;
+    }
+
+    footer a:hover {
+        text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
         .header-container {
-            display: flex;
             flex-direction: column;
-            align-items: center;
+            gap: 10px;
         }
 
-        .logo-title {
-            display: flex;
-            align-items: center;
-            gap: 15px;
+        .logo {
+            margin-right: 0;
             margin-bottom: 10px;
         }
 
-        .logo-title img {
-            height: 60px;
-            background-color: white;
-            padding: 5px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-        }
-
-        .logo-title h1 {
-            margin: 0;
-            font-size: 28px;
-            font-weight: bold;
+        .center-content h1 {
+            font-size: 24px;
         }
 
         nav ul {
-            list-style: none;
-            display: flex;
-            gap: 30px;
-            padding: 0;
-            margin: 0;
-            flex-wrap: wrap;
-            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
         }
 
-        nav ul li {
-            display: inline;
+        .hero h1 {
+            font-size: 2rem;
         }
 
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s;
-            position: relative;
+        .about-section {
+            flex-direction: column;
         }
 
-        nav ul li a::before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: #28a745;
-            transition: width 0.3s ease-in-out;
+        .highlight {
+            flex: 1 1 100%;
         }
 
-        nav ul li a:hover {
-            color: #28a745;
+        .container {
+            padding: 20px 15px;
+            margin: 20px 10px;
         }
+    }
+</style>
 
-        nav ul li a:hover::before {
-            width: 100%;
-        }
-
-        /* Footer style */
-        footer {
-            background-color: #1e1e1e;
-            color: #fff;
-            text-align: center;
-            padding: 20px 10px;
-            margin-top: 40px;
-        }
-
-        footer a {
-            color: #28a745;
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .logo-title {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            nav ul {
-                flex-direction: column;
-                gap: 15px;
-            }
-        }
-    </style>
-</head>
-<body>
-
-    <!-- Header Section -->
-    <header>
-        <div class="header-container">
-            <div class="logo-title">
-                <img src="your-logo-path.png" alt="Granth Enterprises Logo">
-                <h1>Welcome to Granth Enterprises</h1>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="projects.html">Projects/Services</a></li>
-                    <li><a href="contact.html">Contact Us</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
 
     <div class="hero">
         <h1>About Us</h1>
