@@ -3,9 +3,14 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Projects - Patel Enterprise</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             margin: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -15,35 +20,53 @@
         header {
             background-color: #1e1e1e;
             color: white;
+            padding: 15px 20px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 10px 40px;
             flex-wrap: wrap;
         }
 
         header img {
-            height: 60px;
+            height: 50px;
             background-color: white;
             padding: 5px;
             border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        header h1 {
+            font-size: 1.2rem;
+            flex: 1 1 100%;
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        nav {
+            flex: 1 1 100%;
+            text-align: center;
+            margin-top: 10px;
         }
 
         .nav-links {
             list-style: none;
-            margin: 0;
             padding: 0;
+            margin: 0;
             display: flex;
-            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
         }
 
         .nav-links li a {
             color: #f0f0f0;
             text-decoration: none;
             font-weight: bold;
+            font-size: 0.9rem;
             position: relative;
-            transition: color 0.3s ease;
+        }
+
+        .nav-links li a:hover {
+            color: #28a745;
         }
 
         .nav-links li a::after {
@@ -57,71 +80,30 @@
             transition: width 0.3s ease;
         }
 
-        .nav-links li a:hover {
-            color: #28a745;
-        }
-
         .nav-links li a:hover::after {
             width: 100%;
         }
 
-        nav ul {
-            list-style: none;
-            padding: 0;
-            text-align: center;
-            margin: 0;
-        }
-
-        nav ul li {
-            display: inline;
-            margin: 0 15px;
-        }
-
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
         .projects-container {
             max-width: 1200px;
-            margin: 40px auto;
-            padding: 20px;
+            margin: 30px auto;
+            padding: 0 15px;
         }
 
         h2 {
             text-align: center;
             color: #e74c3c;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
-
-        .cta {
-            background-color: #28a745;
-            color: white;
-            padding: 15px 30px;
-            border: none;
-            border-radius: 5px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: 0.3s;
-            margin-top: 20px;
-        }
-
-        .cta:hover {
-            background-color: #218838;
-        }
-
 
         .project-grid {
-            display: flex;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
             gap: 20px;
-            justify-content: center;
         }
 
         .project-card {
             background-color: white;
-            width: 300px;
             border-radius: 10px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             overflow: hidden;
@@ -129,7 +111,7 @@
         }
 
         .project-card:hover {
-            transform: scale(1.05);
+            transform: scale(1.03);
         }
 
         .project-card img {
@@ -145,24 +127,30 @@
         .project-card h3 {
             margin-top: 0;
             color: #2c3e50;
+            font-size: 1.1rem;
+        }
+
+        .project-card p {
+            font-size: 0.95rem;
         }
 
         .fade-in {
             opacity: 0;
             transform: translateY(30px);
-            transition: 1s;
+            transition: opacity 1s ease, transform 1s ease;
         }
 
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
+        .visible {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
         }
 
         footer {
             background-color: #1e1e1e;
             color: #fff;
             text-align: center;
-            padding: 20px 10px;
+            padding: 15px 10px;
+            font-size: 0.9rem;
         }
 
         footer a {
@@ -172,6 +160,29 @@
 
         footer a:hover {
             text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            header img {
+                margin-bottom: 10px;
+            }
+
+            header h1 {
+                font-size: 1rem;
+            }
+
+            .nav-links {
+                gap: 10px;
+            }
+
+            .project-card img {
+                height: 180px;
+            }
         }
     </style>
 </head>
@@ -194,7 +205,6 @@
     <div class="projects-container fade-in">
         <h2>Recent Fabrication Projects</h2>
         <div class="project-grid">
-
             <div class="project-card">
                 <img src="3.JPG" alt="Project 1">
                 <div class="details">
@@ -202,66 +212,62 @@
                     <p>Designed and installed a stylish, durable steel gate for a local bungalow.</p>
                 </div>
             </div>
-
             <div class="project-card">
-                <img src=shed.jpg alt="Project 2">
+                <img src="shed.jpg" alt="Project 2">
                 <div class="details">
                     <h3>Industrial Shed Frame</h3>
-                    <p>Fabricated heavy-duty frame structure shed. </p>
+                    <p>Fabricated heavy-duty frame structure shed.</p>
                 </div>
             </div>
-
             <div class="project-card">
-                <img src=warehouse.jpg alt="Project 3">
+                <img src="warehouse.jpg" alt="Project 3">
                 <div class="details">
                     <h3>Prefabricated metal shed</h3>
-                    <p>Typically used as a warehouse, workshop, or industrial storage unit.</p>
+                    <p>Used as a warehouse, workshop, or industrial storage unit.</p>
                 </div>
             </div>
-
             <div class="project-card">
-                <img src=skipbin.jpg alt="Project 3">
+                <img src="skipbin.jpg" alt="Project 4">
                 <div class="details">
                     <h3>Skip Bin</h3>
-                    <p> It's a large open-topped container used for loading construction and demolition waste, scrap, or
-                        other types of
-                        heavy materials.</p>
+                    <p>Container for loading demolition waste or scrap materials.</p>
                 </div>
             </div>
             <div class="project-card">
-                <img src=4.jpg alt="Project 3">
+                <img src="4.jpg" alt="Project 5">
                 <div class="details">
-                    <h3>Steel frame support structure or testing rig</h3>
-                    <p>Likely used for supporting or testing heavy machinery or components.</p>
+                    <h3>Testing Rig Structure</h3>
+                    <p>Used for supporting/testing heavy machinery components.</p>
                 </div>
             </div>
-
             <div class="project-card">
-                <img src=5.jpg alt="Project 3">
+                <img src="5.jpg" alt="Project 6">
                 <div class="details">
-                    <h3>Fabricated metal shelter with built-in seating and tables</h3>
-                    <p> Corrugated roof and built-in metal benches and tables. It appears to be designed for durability
-                        and outdoor use, ideal for industrial or commercial settings.</p>
+                    <h3>Outdoor Metal Shelter</h3>
+                    <p>Shelter with benches & tables, ideal for industrial or outdoor use.</p>
                 </div>
             </div>
-
         </div>
     </div>
-        <footer>
+
+    <footer>
         <p>&copy; 2025 Granth Enterprises. All rights reserved. | Designed by Kush Patel</p>
     </footer>
+
     <script>
         $(document).ready(function () {
-            $(window).on("load scroll", function () {
+            function checkVisibility() {
                 $(".fade-in").each(function () {
                     var elementTop = $(this).offset().top;
                     var windowBottom = $(window).scrollTop() + $(window).height();
-
                     if (windowBottom > elementTop + 50) {
                         $(this).addClass("visible");
                     }
                 });
-            });
+            }
+
+            checkVisibility();
+            $(window).on("scroll resize", checkVisibility);
         });
     </script>
 
