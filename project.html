@@ -2,275 +2,286 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Projects - Patel Enterprise</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <style>
-        * {
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Projects - Patel Enterprise</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #bfbfbf;
+    }
 
-        body {
-            margin: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #bfbfbf;
-        }
+    header {
+      background-color: #1e1e1e;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 40px;
+      flex-wrap: wrap;
+    }
 
-        header {
-            background-color: #1e1e1e;
-            color: white;
-            padding: 15px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-        }
+    header img {
+      height: 45px;
+      background-color: white;
+      padding: 5px;
+      border-radius: 8px;
+    }
 
-        header img {
-            height: 50px;
-            background-color: white;
-            padding: 5px;
-            border-radius: 8px;
-        }
+    .logo-title {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
 
-        header h1 {
-            font-size: 1.2rem;
-            flex: 1 1 100%;
-            text-align: center;
-            margin: 10px 0;
-        }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      padding: 0;
+      margin: 0;
+    }
 
-        nav {
-            flex: 1 1 100%;
-            text-align: center;
-            margin-top: 10px;
-        }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      position: relative;
+      transition: color 0.3s;
+    }
 
-        .nav-links {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
+    nav ul li a::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: #28a745;
+      transition: width 0.3s ease-in-out;
+    }
 
-        .nav-links li a {
-            color: #f0f0f0;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 0.9rem;
-            position: relative;
-        }
+    nav ul li a:hover {
+      color: #28a745;
+    }
 
-        .nav-links li a:hover {
-            color: #28a745;
-        }
+    nav ul li a:hover::before {
+      width: 100%;
+    }
 
-        .nav-links li a::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: -5px;
-            height: 2px;
-            width: 0;
-            background-color: #28a745;
-            transition: width 0.3s ease;
-        }
+    .hero {
+      background: url('https://source.unsplash.com/1600x400/?construction,metal') no-repeat center center/cover;
+      height: 250px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-shadow: 1px 1px 4px black;
+    }
 
-        .nav-links li a:hover::after {
-            width: 100%;
-        }
+    .hero h1 {
+      font-size: 3rem;
+      font-family: 'Times New Roman', Times, serif;
+    }
 
-        .projects-container {
-            max-width: 1200px;
-            margin: 30px auto;
-            padding: 0 15px;
-        }
+    .container {
+      max-width: 1100px;
+      margin: 30px auto;
+      background-color: white;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    }
 
-        h2 {
-            text-align: center;
-            color: #e74c3c;
-            margin-bottom: 25px;
-        }
+    h2 {
+      text-align: center;
+      color: #e74c3c;
+      margin-bottom: 25px;
+    }
 
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-            gap: 20px;
-        }
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
 
-        .project-card {
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            transition: transform 0.3s ease;
-        }
+    .project-card {
+      background-color: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
 
-        .project-card:hover {
-            transform: scale(1.03);
-        }
+    .project-card:hover {
+      transform: scale(1.03);
+    }
 
-        .project-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
+    .project-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
 
-        .project-card .details {
-            padding: 15px;
-        }
+    .project-card .details {
+      padding: 15px;
+    }
 
-        .project-card h3 {
-            margin-top: 0;
-            color: #2c3e50;
-            font-size: 1.1rem;
-        }
+    .project-card h3 {
+      margin-top: 0;
+      color: #2c3e50;
+      font-size: 1.05rem;
+    }
 
-        .project-card p {
-            font-size: 0.95rem;
-        }
+    .project-card p {
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
 
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 1s ease, transform 1s ease;
-        }
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
 
-        .visible {
-            opacity: 1 !important;
-            transform: translateY(0) !important;
-        }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
-        footer {
-            background-color: #1e1e1e;
-            color: #fff;
-            text-align: center;
-            padding: 15px 10px;
-            font-size: 0.9rem;
-        }
+    footer {
+      background-color: #1e1e1e;
+      color: #fff;
+      text-align: center;
+      padding: 15px 10px;
+      font-size: 0.9rem;
+    }
 
-        footer a {
-            color: #28a745;
-            text-decoration: none;
-        }
+    footer a {
+      color: #28a745;
+      text-decoration: none;
+    }
 
-        footer a:hover {
-            text-decoration: underline;
-        }
+    footer a:hover {
+      text-decoration: underline;
+    }
 
-        @media (max-width: 600px) {
-            header {
-                flex-direction: column;
-                align-items: center;
-            }
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+      }
 
-            header img {
-                margin-bottom: 10px;
-            }
+      nav ul {
+        flex-direction: column;
+        gap: 10px;
+      }
 
-            header h1 {
-                font-size: 1rem;
-            }
+      .hero h1 {
+        font-size: 2.2rem;
+      }
 
-            .nav-links {
-                gap: 10px;
-            }
+      .container {
+        padding: 20px 15px;
+      }
 
-            .project-card img {
-                height: 180px;
-            }
-        }
-    </style>
+      .project-card img {
+        height: 160px;
+      }
+    }
+  </style>
 </head>
 
 <body>
-
-    <header>
-        <img src="logo.png" alt="Granth Enterprises Logo">
-        <h2>Our Projects</h2>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="project.html">Projects/Services</a></li>
-                <li><a href="contacts.html">Contact Us</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <div class="projects-container fade-in">
-        <h2>Recent Fabrication Projects</h2>
-        <div class="project-grid">
-            <div class="project-card">
-                <img src="3.JPG" alt="Project 1">
-                <div class="details">
-                    <h3>Custom Steel Gate</h3>
-                    <p>Designed and installed a stylish, durable steel gate for a local bungalow.</p>
-                </div>
-            </div>
-            <div class="project-card">
-                <img src="shed.jpg" alt="Project 2">
-                <div class="details">
-                    <h3>Industrial Shed Frame</h3>
-                    <p>Fabricated heavy-duty frame structure shed.</p>
-                </div>
-            </div>
-            <div class="project-card">
-                <img src="warehouse.jpg" alt="Project 3">
-                <div class="details">
-                    <h3>Prefabricated metal shed</h3>
-                    <p>Used as a warehouse, workshop, or industrial storage unit.</p>
-                </div>
-            </div>
-            <div class="project-card">
-                <img src="skipbin.jpg" alt="Project 4">
-                <div class="details">
-                    <h3>Skip Bin</h3>
-                    <p>Container for loading demolition waste or scrap materials.</p>
-                </div>
-            </div>
-            <div class="project-card">
-                <img src="4.jpg" alt="Project 5">
-                <div class="details">
-                    <h3>Testing Rig Structure</h3>
-                    <p>Used for supporting/testing heavy machinery components.</p>
-                </div>
-            </div>
-            <div class="project-card">
-                <img src="5.jpg" alt="Project 6">
-                <div class="details">
-                    <h3>Outdoor Metal Shelter</h3>
-                    <p>Shelter with benches & tables, ideal for industrial or outdoor use.</p>
-                </div>
-            </div>
-        </div>
+  <header>
+    <div class="logo-title">
+      <img src="logo.png" alt="Granth Enterprises Logo">
     </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="project.html">Projects/Services</a></li>
+        <li><a href="contacts.html">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <footer>
-        <p>&copy; 2025 Granth Enterprises. All rights reserved. | Designed by Kush Patel</p>
-    </footer>
+  <div class="hero">
+    <h1>Our Projects</h1>
+  </div>
 
-    <script>
-        $(document).ready(function () {
-            function checkVisibility() {
-                $(".fade-in").each(function () {
-                    var elementTop = $(this).offset().top;
-                    var windowBottom = $(window).scrollTop() + $(window).height();
-                    if (windowBottom > elementTop + 50) {
-                        $(this).addClass("visible");
-                    }
-                });
-            }
+  <div class="container fade-in">
+    <h2>Recent Fabrication Projects</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <img src="3.JPG" alt="Project 1">
+        <div class="details">
+          <h3>Custom Steel Gate</h3>
+          <p>Designed and installed a stylish, durable steel gate for a local bungalow.</p>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="shed.jpg" alt="Project 2">
+        <div class="details">
+          <h3>Industrial Shed Frame</h3>
+          <p>Fabricated heavy-duty frame structure shed.</p>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="warehouse.jpg" alt="Project 3">
+        <div class="details">
+          <h3>Prefabricated Metal Shed</h3>
+          <p>Used as a warehouse, workshop, or industrial storage unit.</p>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="skipbin.jpg" alt="Project 4">
+        <div class="details">
+          <h3>Skip Bin</h3>
+          <p>Container for loading demolition waste or scrap materials.</p>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="4.jpg" alt="Project 5">
+        <div class="details">
+          <h3>Testing Rig Structure</h3>
+          <p>Used for supporting/testing heavy machinery components.</p>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="5.jpg" alt="Project 6">
+        <div class="details">
+          <h3>Outdoor Metal Shelter</h3>
+          <p>Shelter with benches & tables, ideal for industrial or outdoor use.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
-            checkVisibility();
-            $(window).on("scroll resize", checkVisibility);
+  <footer>
+    <p>&copy; 2025 Granth Enterprises. All rights reserved. | Designed by Kush Patel</p>
+  </footer>
+
+  <script>
+    $(document).ready(function () {
+      function checkVisibility() {
+        $(".fade-in").each(function () {
+          var elementTop = $(this).offset().top;
+          var windowBottom = $(window).scrollTop() + $(window).height();
+          if (windowBottom > elementTop + 50) {
+            $(this).addClass("visible");
+          }
         });
-    </script>
+      }
 
+      checkVisibility();
+      $(window).on("scroll resize", checkVisibility);
+    });
+  </script>
 </body>
 
 </html>
