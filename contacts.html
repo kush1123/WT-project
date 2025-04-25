@@ -3,9 +3,14 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - Granth Enterprise</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             margin: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -18,37 +23,44 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 10px 40px;
+            padding: 15px 20px;
             flex-wrap: wrap;
-        }
-
-        header img {
-            height: 80px;
-            border-radius: 12px;
-            background-color: white;
-            padding: 8px;
         }
 
         .logo-title {
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 15px;
+            flex: 1 1 100%;
+            justify-content: center;
+        }
+
+        header img {
+            height: 60px;
+            border-radius: 10px;
+            background-color: white;
+            padding: 5px;
         }
 
         .logo-title h1 {
             margin: 0;
-            font-size: 28px;
-            font-weight: bold;
+            font-size: 1.3rem;
+            text-align: center;
+        }
+
+        nav {
+            flex: 1 1 100%;
+            margin-top: 10px;
         }
 
         nav ul {
             list-style: none;
             display: flex;
-            gap: 30px;
-        }
-
-        nav ul li {
-            display: inline;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            padding: 0;
+            margin: 0;
         }
 
         nav ul li a {
@@ -56,22 +68,21 @@
             text-decoration: none;
             font-weight: bold;
             position: relative;
-            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #28a745;
         }
 
         nav ul li a::before {
             content: '';
             position: absolute;
-            bottom: 0;
+            bottom: -4px;
             left: 0;
             width: 0;
             height: 2px;
             background-color: #28a745;
             transition: width 0.3s ease-in-out;
-        }
-
-        nav ul li a:hover {
-            color: #28a745;
         }
 
         nav ul li a:hover::before {
@@ -81,10 +92,10 @@
         .contact-details,
         .form-container {
             max-width: 800px;
-            margin: 40px auto;
+            margin: 30px auto;
             background-color: white;
-            padding: 30px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            padding: 25px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
         }
 
@@ -92,11 +103,13 @@
         .form-container h2 {
             color: #e74c3c;
             margin-bottom: 20px;
+            text-align: center;
         }
 
         .contact-details p {
-            font-size: 1.1rem;
+            font-size: 1rem;
             margin: 10px 0;
+            line-height: 1.5;
         }
 
         .form-container form {
@@ -115,11 +128,12 @@
             font-size: 1rem;
             border: 1px solid #ccc;
             border-radius: 5px;
+            width: 100%;
         }
 
         .form-container button {
-            width: 150px;
-            padding: 10px;
+            width: fit-content;
+            padding: 10px 20px;
             font-size: 1rem;
             background-color: #e74c3c;
             color: white;
@@ -136,7 +150,8 @@
             background-color: #1e1e1e;
             color: #fff;
             text-align: center;
-            padding: 20px 10px;
+            padding: 15px 10px;
+            font-size: 0.9rem;
         }
 
         footer a {
@@ -148,16 +163,22 @@
             text-decoration: underline;
         }
 
-        @media (max-width: 768px) {
-            header {
+        @media (max-width: 600px) {
+            .logo-title {
                 flex-direction: column;
-                gap: 10px;
-                text-align: center;
+            }
+
+            .logo-title h1 {
+                font-size: 1.1rem;
             }
 
             nav ul {
                 flex-direction: column;
                 gap: 10px;
+            }
+
+            .form-container button {
+                width: 100%;
             }
         }
     </style>
@@ -173,7 +194,7 @@
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About Us</a></li>
-                <li><a href="project.html">Projects/services</a></li>
+                <li><a href="project.html">Projects/Services</a></li>
                 <li><a href="contacts.html">Contact Us</a></li>
             </ul>
         </nav>
@@ -212,10 +233,10 @@
         function handleSubmit(event) {
             event.preventDefault();
             alert("Thank you for visiting Patel Enterprise!");
-            window.location.href = "index.html"; 
+            window.location.href = "index.html";
         }
     </script>
-    
+
 </body>
 
 </html>
