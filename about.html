@@ -3,18 +3,18 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - Granth Enterprise</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
-          body {
+        body {
             font-family: Arial, sans-serif;
             background-color: #bfbfbf;
             margin: 0;
             padding: 0;
         }
 
-
-       header {
+        header {
             background-color: #1e1e1e;
             color: white;
             display: flex;
@@ -24,18 +24,19 @@
             flex-wrap: wrap;
         }
 
-       header img {
+        header img {
             height: 60px;
             background-color: white;
             padding: 5px;
             border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         .logo-title {
             display: flex;
             align-items: center;
             gap: 20px;
+            flex-wrap: wrap;
         }
 
         .logo-title h1 {
@@ -48,37 +49,42 @@
             list-style: none;
             display: flex;
             gap: 30px;
+            padding: 0;
+            margin: 10px 0;
+            flex-wrap: wrap;
         }
 
         nav ul li {
             display: inline;
         }
+
         nav ul li a {
-        color: white;
-        text-decoration: none;
-        font-weight: bold;
-        position: relative;
-        transition: color 0.3s;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            position: relative;
+            transition: color 0.3s;
         }
 
         nav ul li a::before {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 0;
-        height: 2px;
-        background-color: #28a745;
-        transition: width 0.3s ease-in-out;
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #28a745;
+            transition: width 0.3s ease-in-out;
         }
 
         nav ul li a:hover {
-        color: #28a745;
+            color: #28a745;
         }
 
         nav ul li a:hover::before {
-        width: 100%;
-    }
+            width: 100%;
+        }
+
         .hero {
             background: url('https://source.unsplash.com/1600x500/?fabrication,workshop') no-repeat center center/cover;
             height: 300px;
@@ -90,12 +96,12 @@
         }
 
         .hero h1 {
-            font-size: 4rem;
-            color: #ffffff;
+            font-size: 3rem;
             font-weight: bold;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
             letter-spacing: 1px;
             font-family: 'Times New Roman', Times, serif;
+            text-align: center;
+            padding: 0 10px;
         }
 
         .container {
@@ -146,6 +152,7 @@
         p {
             font-size: 1.1rem;
             line-height: 1.7;
+            color: #333;
         }
 
         .highlights {
@@ -187,13 +194,24 @@
         @media (max-width: 768px) {
             header {
                 flex-direction: column;
-                gap: 10px;
                 text-align: center;
+                gap: 10px;
+                padding: 20px 10px;
+            }
+
+            .logo-title {
+                flex-direction: column;
+                align-items: center;
             }
 
             nav ul {
                 flex-direction: column;
+                align-items: center;
                 gap: 10px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
             }
 
             .about-section {
@@ -203,11 +221,17 @@
             .highlight {
                 flex: 1 1 100%;
             }
+
+            .container {
+                padding: 20px 15px;
+                margin: 20px 10px;
+            }
         }
     </style>
 </head>
 
 <body>
+
     <header>
         <div class="logo-title">
             <img src="logo.png" alt="Granth Enterprises Logo">
@@ -231,9 +255,9 @@
         <div class="about-section">
             <div class="about-text">
                 <h2>Who We Are</h2>
-                <p><strong> Granth Enterprise</strong> is a leading local provider of custom metal fabrication solutions...</p>
+                <p><strong>Granth Enterprise</strong> is a leading local provider of custom metal fabrication solutions...</p>
                 <p>We offer a wide range of services including <strong>cutting, welding, bending, and assembling</strong>...</p>
-                <p>At Patel Enterprise, we believe in craftsmanship that lasts...</p>
+                <p>At Granth Enterprise, we believe in craftsmanship that lasts...</p>
 
                 <div class="highlights">
                     <div class="highlight">
@@ -275,6 +299,6 @@
             });
         });
     </script>
-</body>
 
+</body>
 </html>
